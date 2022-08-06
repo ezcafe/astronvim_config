@@ -20,8 +20,13 @@ local config = {
     -- },
   },
 
+  header = {
+    "       It’s not a bug,",
+    "it’s an undocumented feature.",
+  },
+
   -- Set colorscheme
-  colorscheme = "default_theme",
+  colorscheme = "onedark",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -163,6 +168,57 @@ local config = {
     packer = {
       compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
     },
+
+    feline = function(config)
+      local status = require "core.status"
+      local hl = status.hl
+      local provider = status.provider
+      local conditional = status.conditional
+      local C = require "default_theme.colors"
+
+      config.components = {
+        active = {
+          {
+            { provider = provider.spacer(), hl = hl.mode() },
+            { provider = provider.spacer(2) },
+            { provider = "git_branch", hl = hl.fg("Conditional", { fg = C.purple_1, style = "bold" }), icon = " " },
+            { provider = provider.spacer(3), enabled = conditional.git_available },
+            {
+              provider = { name = "file_type", opts = { filetype_icon = true, case = "lowercase" } },
+              enabled = conditional.has_filetype,
+            },
+            { provider = provider.spacer(2), enabled = conditional.has_filetype },
+            { provider = "git_diff_added", hl = hl.fg("GitSignsAdd", { fg = C.green }), icon = "  " },
+            { provider = "git_diff_changed", hl = hl.fg("GitSignsChange", { fg = C.orange_1 }), icon = " 柳" },
+            { provider = "git_diff_removed", hl = hl.fg("GitSignsDelete", { fg = C.red_1 }), icon = "  " },
+            { provider = provider.spacer(2), enabled = conditional.git_changed },
+            { provider = "diagnostic_errors", hl = hl.fg("DiagnosticError", { fg = C.red_1 }), icon = "  " },
+            { provider = "diagnostic_warnings", hl = hl.fg("DiagnosticWarn", { fg = C.orange_1 }), icon = "  " },
+            { provider = "diagnostic_info", hl = hl.fg("DiagnosticInfo", { fg = C.white_2 }), icon = "  " },
+            { provider = "diagnostic_hints", hl = hl.fg("DiagnosticHint", { fg = C.yellow_1 }), icon = "  " },
+          },
+          {
+            { provider = provider.lsp_progress, enabled = conditional.bar_width() },
+            {
+              provider = provider.lsp_client_names(true),
+              short_provider = provider.lsp_client_names(),
+              enabled = conditional.bar_width(),
+              icon = "   ",
+            },
+            { provider = provider.spacer(2), enabled = conditional.bar_width() },
+            {
+              provider = provider.treesitter_status,
+              enabled = conditional.bar_width(),
+              hl = hl.fg("GitSignsAdd", { fg = C.green }),
+            },
+            { provider = provider.spacer(2) },
+            { provider = provider.spacer(), hl = hl.mode() },
+          },
+        },
+      }
+      return config
+    end,
+    -- END PLUGINS
   },
 
   -- LuaSnip Options
@@ -354,43 +410,31 @@ local config = {
             s = { "<cmd>Telescope git_status<cr>", "Git status" },
           },
 
-          h = {
-            name = "Hop",
-            c = { "<cmd>HopChar1<cr>", "Character" },
-            C = { "<cmd>HopChar2<cr>", "2 Characters" },
-            l = { "<cmd>HopLine<cr>", "Line" },
-            p = { "<cmd>HopPattern<cr>", "Pattern" },
-            w = { "<cmd>HopWord<cr>", "Word" },
-          },
+          -- h = {
+          --   name = "Hop",
+          --   c = { "<cmd>HopChar1<cr>", "Character" },
+          --   C = { "<cmd>HopChar2<cr>", "2 Characters" },
+          --   l = { "<cmd>HopLine<cr>", "Line" },
+          --   p = { "<cmd>HopPattern<cr>", "Pattern" },
+          --   w = { "<cmd>HopWord<cr>", "Word" },
+          -- },
         },
 
-        g = {
-          t = {
-            name = "Treesitter",
-            v = {
-              function() require("syntax-tree-surfer").targeted_jump { "variable_declaration" } end,
-              "Go to Variables",
-            },
-            f = {
-              function() require("syntax-tree-surfer").targeted_jump { "function" } end,
-              "Go to Functions",
-            },
-          },
-        },
+        -- END MAPPINGS - NORMAL
       },
 
-      v = {
-        ["<leader>"] = {
-          h = {
-            name = "Hop",
-            c = { "<cmd>HopChar1<cr>", "Character" },
-            C = { "<cmd>HopChar2<cr>", "2 Characters" },
-            l = { "<cmd>HopLine<cr>", "Line" },
-            p = { "<cmd>HopPattern<cr>", "Pattern" },
-            w = { "<cmd>HopWord<cr>", "Word" },
-          },
-        },
-      },
+      -- v = {
+      --   ["<leader>"] = {
+      --     h = {
+      --       name = "Hop",
+      --       c = { "<cmd>HopChar1<cr>", "Character" },
+      --       C = { "<cmd>HopChar2<cr>", "2 Characters" },
+      --       l = { "<cmd>HopLine<cr>", "Line" },
+      --       p = { "<cmd>HopPattern<cr>", "Pattern" },
+      --       w = { "<cmd>HopWord<cr>", "Word" },
+      --     },
+      --   },
+      -- },
     },
   },
 
