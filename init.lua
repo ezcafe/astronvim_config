@@ -97,7 +97,7 @@ local config = {
       --   end,
       -- },
 
-      { "joshdick/onedark.vim" }
+      { "joshdick/onedark.vim" },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -124,40 +124,40 @@ local config = {
       return config -- return final config table
     end,
     treesitter = {
-      ensure_installed = { 
-        "dockerfile", 
-        "graphql", 
-        "java", 
-        "javascript", 
-        "jsdoc", 
-        "json", 
-        "markdown", 
-        "sql", 
-        "tsx", 
-        "typescript", 
-        "yaml" 
+      ensure_installed = {
+        "dockerfile",
+        "graphql",
+        "java",
+        "javascript",
+        "jsdoc",
+        "json",
+        "markdown",
+        "sql",
+        "tsx",
+        "typescript",
+        "yaml",
       },
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = {
-      ensure_installed = { 
-        "dockerls", 
-        "eslint", 
-        "graphql", 
-        "jdtls", 
-        "quick_lint_js", 
-        "jsonls", 
-        "marksman", 
-        "sqlls", 
-        "tsserver", 
-        "yamlls" 
+      ensure_installed = {
+        "dockerls",
+        "eslint",
+        "graphql",
+        "jdtls",
+        "quick_lint_js",
+        "jsonls",
+        "marksman",
+        "sqlls",
+        "tsserver",
+        "yamlls",
       },
     },
     -- use mason-tool-installer to configure DAP/Formatters/Linter installation
     ["mason-tool-installer"] = {
-      ensure_installed = { 
-        "prettier", 
-        "stylua" 
+      ensure_installed = {
+        "prettier",
+        "stylua",
       },
     },
     packer = {
@@ -194,16 +194,16 @@ local config = {
   lsp = {
     -- enable servers that you already have installed without mason
     servers = {
-      --"dockerls", 
-      --"eslint", 
-      --"graphql", 
-      --"jdtls", 
-      --"quick_lint_js", 
-      --"jsonls", 
-      --"marksman", 
-      --"sqlls", 
-      --"tsserver", 
-      --"yamlls" 
+      --"dockerls",
+      --"eslint",
+      --"graphql",
+      --"jdtls",
+      --"quick_lint_js",
+      --"jsonls",
+      --"marksman",
+      --"sqlls",
+      --"tsserver",
+      --"yamlls"
     },
     -- easily add or disable built in mappings added during LSP attaching
     mappings = {
@@ -259,17 +259,22 @@ local config = {
       --["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-      
+
       -- disable default bindings
       --["<C-Down>"] = false,
       --["<C-Left>"] = false,
       --["<C-Right>"] = false,
       --["<C-Up>"] = false,
-      ["<leader>c"] = false,  --
+      ["<leader>c"] = false, --
+      ["<leader>d"] = false,
       ["<leader>h"] = false,
+      ["<leader>o"] = false,
       ["<leader>fh"] = false, --
       ["<leader>fn"] = false,
       ["<leader>fo"] = false, --
+      ["<leader>gt"] = false,
+      ["<leader>li"] = false,
+      ["<leader>lI"] = false,
       ["<leader>sb"] = false,
       ["<leader>sc"] = false, --
       ["<leader>sh"] = false, --
@@ -283,13 +288,15 @@ local config = {
       ["<leader>ps"] = false,
       ["<leader>pS"] = false,
       ["<leader>pu"] = false,
+      ["<b"] = false,
+      [">b"] = false,
 
       -- resize with arrows
       --["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
       --["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
       --["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
       --["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
-      
+
       -- easy splits
       --["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" },
       --["|"] = { "<cmd>vsplit<cr>", desc = "Vertical split" },
@@ -297,7 +304,6 @@ local config = {
       -- better increment/decrement
       --["-"] = { "<c-x>", desc = "Descrement number" },
       --["+"] = { "<c-a>", desc = "Increment number" },
-
     },
     t = {
       -- setting a mapping to false will disable it
@@ -317,14 +323,14 @@ local config = {
           -- group name in which-key top level menu
           --["b"] = { name = "Buffer" },
           --["c"] = { function() MiniBufremove.delete() end, "Bye Buffer" },
-          ["tc"] = { "<cmd>bdelete<cr>", "Close Buffer" },
-          ["tn"] = { "<cmd>tabnew<cr>", "New Buffer" },
+          ["bc"] = { "<cmd>bdelete<cr>", "Close Buffer" },
+          ["bn"] = { "<cmd>tabnew<cr>", "New Buffer" },
           --["ht"] = { "<cmd>set hlsearch!<cr>", "Toggle Highlight" },
           --["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
           --["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
           --["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
           --["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
-          
+
           f = {
             name = "Telescope",
             ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -332,22 +338,20 @@ local config = {
             --B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
             c = { "<cmd>Telescope commands<cr>", "Commands" },
             --e = { "<cmd>Telescope file_browser<cr>", "Explorer" },
-            f = { "<cmd>Telescope find_files<cr>", "Files" },
             h = { "<cmd>Telescope oldfiles<cr>", "History" },
             k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
             m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
             --M = { "<cmd>Telescope media_files<cr>", "Media" },
             n = { "<cmd>Telescope notify<cr>", "Notifications" },
             p = { "<cmd>Telescope project<cr>", "Projects" },
-            --r = { "<cmd>Telescope registers<cr>", "Registers" },
-            s = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Symbols" },
+            r = { "<cmd>Telescope registers<cr>", "Registers" },
+            -- s = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Symbols" },
             t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
           },
 
           g = {
             name = "Telescope",
-            b = { "<cmd>Telescope git_branches<cr>", "Git branches" },
-            c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
+            s = { "<cmd>Telescope git_status<cr>", "Git status" },
           },
 
           h = {
@@ -358,7 +362,6 @@ local config = {
             p = { "<cmd>HopPattern<cr>", "Pattern" },
             w = { "<cmd>HopWord<cr>", "Word" },
           },
-
         },
 
         g = {
@@ -369,12 +372,11 @@ local config = {
               "Go to Variables",
             },
             f = {
-             function() require("syntax-tree-surfer").targeted_jump { "function" } end,
+              function() require("syntax-tree-surfer").targeted_jump { "function" } end,
               "Go to Functions",
             },
           },
         },
-
       },
 
       v = {
@@ -388,9 +390,7 @@ local config = {
             w = { "<cmd>HopWord<cr>", "Word" },
           },
         },
-      }, 
-
-
+      },
     },
   },
 
