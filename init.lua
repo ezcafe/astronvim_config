@@ -1,3 +1,6 @@
+-- https://github.com/datamonsterr/astronvim_config/blob/main/mappings.lua
+-- https://github.com/thieung/dotfiles/blob/main/config/nvim/mappings.lua
+
 local config = {
 
   -- Configure AstroNvim updates
@@ -18,7 +21,7 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "onedark",
+  colorscheme = "default_theme",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -26,7 +29,7 @@ local config = {
     --   Normal = { bg = "#000000" },
     -- },
     default_theme = function(highlights) -- or a function that returns one
-      local C = require "onedark.colors"
+      local C = require "default_theme.colors"
 
       highlights.Normal = { fg = C.fg, bg = C.bg }
       return highlights
@@ -93,6 +96,8 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+
+      { "joshdick/onedark.vim" }
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -189,16 +194,16 @@ local config = {
   lsp = {
     -- enable servers that you already have installed without mason
     servers = {
-      "dockerls", 
-      "eslint", 
-      "graphql", 
-      "jdtls", 
-      "quick_lint_js", 
-      "jsonls", 
-      "marksman", 
-      "sqlls", 
-      "tsserver", 
-      "yamlls" 
+      --"dockerls", 
+      --"eslint", 
+      --"graphql", 
+      --"jdtls", 
+      --"quick_lint_js", 
+      --"jsonls", 
+      --"marksman", 
+      --"sqlls", 
+      --"tsserver", 
+      --"yamlls" 
     },
     -- easily add or disable built in mappings added during LSP attaching
     mappings = {
@@ -248,12 +253,51 @@ local config = {
     n = {
       -- second key is the lefthand side of the map
       -- mappings seen under group name "Buffer"
-      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+      --["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+      --["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
+      --["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
+      --["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      
+      -- disable default bindings
+      --["<C-Down>"] = false,
+      --["<C-Left>"] = false,
+      --["<C-Right>"] = false,
+      --["<C-Up>"] = false,
+      ["<leader>c"] = false,  --
+      ["<leader>h"] = false,
+      ["<leader>fh"] = false, --
+      ["<leader>fn"] = false,
+      ["<leader>fo"] = false, --
+      ["<leader>sb"] = false,
+      ["<leader>sc"] = false, --
+      ["<leader>sh"] = false, --
+      ["<leader>sk"] = false, --
+      ["<leader>sm"] = false, --
+      ["<leader>sn"] = false, --
+      ["<leader>sh"] = false, --
+      ["<leader>sr"] = false, --
+      ["<leader>pc"] = false,
+      ["<leader>pi"] = false,
+      ["<leader>ps"] = false,
+      ["<leader>pS"] = false,
+      ["<leader>pu"] = false,
+
+      -- resize with arrows
+      --["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
+      --["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
+      --["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
+      --["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
+      
+      -- easy splits
+      --["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" },
+      --["|"] = { "<cmd>vsplit<cr>", desc = "Vertical split" },
+
+      -- better increment/decrement
+      --["-"] = { "<c-x>", desc = "Descrement number" },
+      --["+"] = { "<c-a>", desc = "Increment number" },
+
     },
     t = {
       -- setting a mapping to false will disable it
@@ -271,9 +315,82 @@ local config = {
         ["<leader>"] = {
           -- third key is the key to bring up next level and its displayed
           -- group name in which-key top level menu
-          ["b"] = { name = "Buffer" },
+          --["b"] = { name = "Buffer" },
+          --["c"] = { function() MiniBufremove.delete() end, "Bye Buffer" },
+          ["tc"] = { "<cmd>bdelete<cr>", "Close Buffer" },
+          ["tn"] = { "<cmd>tabnew<cr>", "New Buffer" },
+          --["ht"] = { "<cmd>set hlsearch!<cr>", "Toggle Highlight" },
+          --["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
+          --["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
+          --["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
+          --["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
+          
+          f = {
+            name = "Telescope",
+            ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+            ["'"] = { "<cmd>Telescope marks<cr>", "Marks" },
+            --B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
+            c = { "<cmd>Telescope commands<cr>", "Commands" },
+            --e = { "<cmd>Telescope file_browser<cr>", "Explorer" },
+            f = { "<cmd>Telescope find_files<cr>", "Files" },
+            h = { "<cmd>Telescope oldfiles<cr>", "History" },
+            k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+            m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+            --M = { "<cmd>Telescope media_files<cr>", "Media" },
+            n = { "<cmd>Telescope notify<cr>", "Notifications" },
+            p = { "<cmd>Telescope project<cr>", "Projects" },
+            --r = { "<cmd>Telescope registers<cr>", "Registers" },
+            s = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Symbols" },
+            t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
+          },
+
+          g = {
+            name = "Telescope",
+            b = { "<cmd>Telescope git_branches<cr>", "Git branches" },
+            c = { "<cmd>Telescope git_commits<cr>", "Git commits" },
+          },
+
+          h = {
+            name = "Hop",
+            c = { "<cmd>HopChar1<cr>", "Character" },
+            C = { "<cmd>HopChar2<cr>", "2 Characters" },
+            l = { "<cmd>HopLine<cr>", "Line" },
+            p = { "<cmd>HopPattern<cr>", "Pattern" },
+            w = { "<cmd>HopWord<cr>", "Word" },
+          },
+
         },
+
+        g = {
+          t = {
+            name = "Treesitter",
+            v = {
+              function() require("syntax-tree-surfer").targeted_jump { "variable_declaration" } end,
+              "Go to Variables",
+            },
+            f = {
+             function() require("syntax-tree-surfer").targeted_jump { "function" } end,
+              "Go to Functions",
+            },
+          },
+        },
+
       },
+
+      v = {
+        ["<leader>"] = {
+          h = {
+            name = "Hop",
+            c = { "<cmd>HopChar1<cr>", "Character" },
+            C = { "<cmd>HopChar2<cr>", "2 Characters" },
+            l = { "<cmd>HopLine<cr>", "Line" },
+            p = { "<cmd>HopPattern<cr>", "Pattern" },
+            w = { "<cmd>HopWord<cr>", "Word" },
+          },
+        },
+      }, 
+
+
     },
   },
 
