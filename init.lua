@@ -103,6 +103,10 @@ local config = {
       -- },
 
       { "joshdick/onedark.vim" },
+      {
+        "Pocco81/true-zen.nvim",
+        config = function() require("true-zen").setup() end,
+      },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -168,7 +172,6 @@ local config = {
     packer = {
       compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
     },
-
     feline = function(config)
       local status = require "core.status"
       local hl = status.hl
@@ -213,6 +216,18 @@ local config = {
       }
       return config
     end,
+    ["neo-tree"] = {
+      window = {
+        width = 40,
+        mappings = {
+          ["<C-t>"] = "open",
+          ["<C-x>"] = "open_split",
+          ["<C-v>"] = "open_vsplit",
+          ["C"] = "close_all_nodes",
+        },
+      },
+    },
+
     -- END PLUGINS
   },
 
@@ -342,19 +357,9 @@ local config = {
       ["<b"] = false,
       [">b"] = false,
 
-      -- resize with arrows
-      --["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
-      --["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
-      --["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
-      --["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
-
       -- easy splits
       --["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" },
       --["|"] = { "<cmd>vsplit<cr>", desc = "Vertical split" },
-
-      -- better increment/decrement
-      --["-"] = { "<c-x>", desc = "Descrement number" },
-      --["+"] = { "<c-a>", desc = "Increment number" },
     },
     t = {
       -- setting a mapping to false will disable it
@@ -413,23 +418,40 @@ local config = {
           --   p = { "<cmd>HopPattern<cr>", "Pattern" },
           --   w = { "<cmd>HopWord<cr>", "Word" },
           -- },
+
+          z = {
+            name = "truezen",
+            a = { "<cmd>TZAtaraxis<cr>", "Zen TZAtaraxis" },
+            f = { "<cmd>TZFocus<cr>", "Zen Focus" },
+            n = { "<cmd>TZNarrow<cr>", "Zen Narrow" },
+            m = { "<cmd>TZMinimalist<cr>", "Zen Minimalist" },
+          },
         },
+
+        -- misc
+        -- ["U"] = { "<C-R>", "Redo" },
+        -- ["!Qa"] = { "!qa" },
 
         -- END MAPPINGS - NORMAL
       },
 
-      -- v = {
-      --   ["<leader>"] = {
-      --     h = {
-      --       name = "Hop",
-      --       c = { "<cmd>HopChar1<cr>", "Character" },
-      --       C = { "<cmd>HopChar2<cr>", "2 Characters" },
-      --       l = { "<cmd>HopLine<cr>", "Line" },
-      --       p = { "<cmd>HopPattern<cr>", "Pattern" },
-      --       w = { "<cmd>HopWord<cr>", "Word" },
-      --     },
-      --   },
-      -- },
+      v = {
+        --   ["<leader>"] = {
+        --     h = {
+        --       name = "Hop",
+        --       c = { "<cmd>HopChar1<cr>", "Character" },
+        --       C = { "<cmd>HopChar2<cr>", "2 Characters" },
+        --       l = { "<cmd>HopLine<cr>", "Line" },
+        --       p = { "<cmd>HopPattern<cr>", "Pattern" },
+        --       w = { "<cmd>HopWord<cr>", "Word" },
+        --     },
+        --   },
+
+        z = {
+          n = { "<cmd>'<,'>TZNarrow<cr>", "Zen Narrow" },
+        },
+        -- END MAPPINGS - VISUAL
+      },
     },
   },
 
