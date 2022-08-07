@@ -322,32 +322,32 @@ local config = {
       --["<C-Left>"] = false,
       --["<C-Right>"] = false,
       --["<C-Up>"] = false,
-    --   ["<leader>c"] = false, --
-    --   ["<leader>d"] = false,
-    --   ["<leader>h"] = false,
-    --   ["<leader>o"] = false,
-    --   ["<leader>fh"] = false, --
-    --   ["<leader>fn"] = false,
-    --   ["<leader>fo"] = false, --
-    --   ["<leader>gt"] = false,
-    --   ["<leader>li"] = false,
-    --   ["<leader>lI"] = false,
-    --   ["<leader>sb"] = false,
-    --   ["<leader>sc"] = false, --
-    --   ["<leader>sh"] = false, --
-    --   ["<leader>sk"] = false, --
-    --   ["<leader>sm"] = false, --
-    --   ["<leader>sn"] = false, --
-    --   ["<leader>sh"] = false, --
-    --   ["<leader>sr"] = false, --
-    --   ["<leader>th"] = false,
-    --   ["<leader>pc"] = false,
-    --   ["<leader>pi"] = false,
-    --   ["<leader>ps"] = false,
-    --   ["<leader>pS"] = false,
-    --   ["<leader>pu"] = false,
-    --   ["<b"] = false,
-    --   [">b"] = false,
+      --   ["<leader>c"] = false, --
+      --   ["<leader>d"] = false,
+      --   ["<leader>h"] = false,
+      --   ["<leader>o"] = false,
+      --   ["<leader>fh"] = false, --
+      --   ["<leader>fn"] = false,
+      --   ["<leader>fo"] = false, --
+      --   ["<leader>gt"] = false,
+      --   ["<leader>li"] = false,
+      --   ["<leader>lI"] = false,
+      --   ["<leader>sb"] = false,
+      --   ["<leader>sc"] = false, --
+      --   ["<leader>sh"] = false, --
+      --   ["<leader>sk"] = false, --
+      --   ["<leader>sm"] = false, --
+      --   ["<leader>sn"] = false, --
+      --   ["<leader>sh"] = false, --
+      --   ["<leader>sr"] = false, --
+      --   ["<leader>th"] = false,
+      --   ["<leader>pc"] = false,
+      --   ["<leader>pi"] = false,
+      --   ["<leader>ps"] = false,
+      --   ["<leader>pS"] = false,
+      --   ["<leader>pu"] = false,
+      --   ["<b"] = false,
+      --   [">b"] = false,
 
       -- easy splits
       --["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" },
@@ -409,7 +409,7 @@ local config = {
           --   p = { "<cmd>HopPattern<cr>", "Pattern" },
           --   w = { "<cmd>HopWord<cr>", "Word" },
           -- },
-          
+
           t = {
             x = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
           },
@@ -425,9 +425,16 @@ local config = {
 
         -- misc
         -- ["U"] = { "<C-R>", "Redo" },
-        -- ["!Qa"] = { "!qa" },
+        ["C-q"] = { "<cmd>q<cr>", "Quit" },
+        ["C-S-q"] = { "<cmd>q!<cr>", "Force quit" },
+        ["C-s"] = { "<cmd>w<cr>", "Save" },
+        ["C-S-s"] = { "<cmd>w!<cr>", "Force save" },
 
         -- END MAPPINGS - NORMAL
+      },
+
+      t = {
+        -- ["Qa"] = { "<cmd>qa<cr>", "Quit" },
       },
 
       v = {
