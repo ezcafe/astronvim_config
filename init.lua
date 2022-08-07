@@ -352,6 +352,7 @@ local config = {
       -- easy splits
       --["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" },
       --["|"] = { "<cmd>vsplit<cr>", desc = "Vertical split" },
+      [";"] = { ":" },
     },
     t = {
       -- setting a mapping to false will disable it
@@ -431,10 +432,6 @@ local config = {
         ["C-S-s"] = { "<cmd>w!<cr>", "Force save" },
 
         -- END MAPPINGS - NORMAL
-      },
-
-      t = {
-        -- ["Qa"] = { "<cmd>qa<cr>", "Quit" },
       },
 
       v = {

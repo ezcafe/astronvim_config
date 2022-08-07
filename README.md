@@ -27,6 +27,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 | Mode | Action                                     | Mappings     |
 | ---- | ------------------------------------------ | ------------ |
 | n    | Leader key                                 | Space        |
+| n    | Colon key                                  | ;        	   |
 | n    | Escape key                                 | jj, jk       |
 | n    | Save                                       | Space + w    |
 | n    | Force write                                | Ctrl + s     |
