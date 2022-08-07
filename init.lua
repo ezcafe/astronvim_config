@@ -317,45 +317,37 @@ local config = {
   mappings = {
     -- first key is the mode
     n = {
-      -- second key is the lefthand side of the map
-      -- mappings seen under group name "Buffer"
-      --["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      --["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-      --["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-      --["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-      -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-
       -- disable default bindings
       --["<C-Down>"] = false,
       --["<C-Left>"] = false,
       --["<C-Right>"] = false,
       --["<C-Up>"] = false,
-      ["<leader>c"] = false, --
-      ["<leader>d"] = false,
-      ["<leader>h"] = false,
-      ["<leader>o"] = false,
-      ["<leader>fh"] = false, --
-      ["<leader>fn"] = false,
-      ["<leader>fo"] = false, --
-      ["<leader>gt"] = false,
-      ["<leader>li"] = false,
-      ["<leader>lI"] = false,
-      ["<leader>sb"] = false,
-      ["<leader>sc"] = false, --
-      ["<leader>sh"] = false, --
-      ["<leader>sk"] = false, --
-      ["<leader>sm"] = false, --
-      ["<leader>sn"] = false, --
-      ["<leader>sh"] = false, --
-      ["<leader>sr"] = false, --
-      ["<leader>pc"] = false,
-      ["<leader>pi"] = false,
-      ["<leader>ps"] = false,
-      ["<leader>pS"] = false,
-      ["<leader>pu"] = false,
-      ["<b"] = false,
-      [">b"] = false,
+    --   ["<leader>c"] = false, --
+    --   ["<leader>d"] = false,
+    --   ["<leader>h"] = false,
+    --   ["<leader>o"] = false,
+    --   ["<leader>fh"] = false, --
+    --   ["<leader>fn"] = false,
+    --   ["<leader>fo"] = false, --
+    --   ["<leader>gt"] = false,
+    --   ["<leader>li"] = false,
+    --   ["<leader>lI"] = false,
+    --   ["<leader>sb"] = false,
+    --   ["<leader>sc"] = false, --
+    --   ["<leader>sh"] = false, --
+    --   ["<leader>sk"] = false, --
+    --   ["<leader>sm"] = false, --
+    --   ["<leader>sn"] = false, --
+    --   ["<leader>sh"] = false, --
+    --   ["<leader>sr"] = false, --
+    --   ["<leader>th"] = false,
+    --   ["<leader>pc"] = false,
+    --   ["<leader>pi"] = false,
+    --   ["<leader>ps"] = false,
+    --   ["<leader>pS"] = false,
+    --   ["<leader>pu"] = false,
+    --   ["<b"] = false,
+    --   [">b"] = false,
 
       -- easy splits
       --["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" },
@@ -383,7 +375,6 @@ local config = {
           ["bn"] = { "<cmd>tabnew<cr>", "New Buffer" },
           --["ht"] = { "<cmd>set hlsearch!<cr>", "Toggle Highlight" },
           --["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
-          --["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
           --["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
           --["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
 
@@ -399,7 +390,7 @@ local config = {
             m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
             --M = { "<cmd>Telescope media_files<cr>", "Media" },
             n = { "<cmd>Telescope notify<cr>", "Notifications" },
-            p = { "<cmd>Telescope project<cr>", "Projects" },
+            -- p = { "<cmd>Telescope project<cr>", "Projects" },
             r = { "<cmd>Telescope registers<cr>", "Registers" },
             -- s = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Symbols" },
             t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
@@ -418,10 +409,14 @@ local config = {
           --   p = { "<cmd>HopPattern<cr>", "Pattern" },
           --   w = { "<cmd>HopWord<cr>", "Word" },
           -- },
+          
+          t = {
+            x = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
+          },
 
           z = {
             name = "truezen",
-            a = { "<cmd>TZAtaraxis<cr>", "Zen TZAtaraxis" },
+            a = { "<cmd>TZAtaraxis<cr>", "Zen Ataraxis" },
             f = { "<cmd>TZFocus<cr>", "Zen Focus" },
             n = { "<cmd>TZNarrow<cr>", "Zen Narrow" },
             m = { "<cmd>TZMinimalist<cr>", "Zen Minimalist" },
