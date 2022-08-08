@@ -27,7 +27,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 | Mode | Action                                     | Mappings     |
 | ---- | ------------------------------------------ | ------------ |
 | n    | Leader key                                 | Space        |
-| n    | Colon key                                  | ;        	   |
+| n    | Colon key                                  | ;            |
 | n    | Escape key                                 | jj, jk       |
 | n    | Save                                       | Space + w    |
 | n    | Force write                                | Ctrl + s     |
@@ -86,6 +86,16 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 | n    | Git Branches  | Space + gb, Space + sb | telescope.nvim |
 | n    | Git Commits   | Space + gc             | telescope.nvim |
 | n    | Git Status    | Space + gs             | telescope.nvim | Yes     |
+
+### Hop
+
+| Mode | Action           | Mappings   | Plugin?  | Custom? |
+| ---- | ---------------- | ---------- | -------- | ------- |
+| n, v | Hop Character    | Space + hc | hop.nvim | Yes     |
+| n, v | Hop 2 Characters | Space + hC | hop.nvim | Yes     |
+| n, v | Hop Line         | Space + hl | hop.nvim | Yes     |
+| n, v | Hop Pattern      | Space + hp | hop.nvim | Yes     |
+| n, v | Hop Word         | Space + hw | hop.nvim | Yes     |
 
 ### LSP
 

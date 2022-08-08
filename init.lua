@@ -105,7 +105,11 @@ local config = {
       { "joshdick/onedark.vim" },
       {
         "Pocco81/true-zen.nvim",
-        config = function() require("true-zen").setup() end,
+        config = function() require "user.plugins.true-zen" end,
+      },
+      {
+        "phaazon/hop.nvim",
+        config = function() require "user.plugins.hop" end,
       },
     },
     -- All other entries override the setup() call for default plugins
@@ -402,14 +406,14 @@ local config = {
             s = { "<cmd>Telescope git_status<cr>", "Git status" },
           },
 
-          -- h = {
-          --   name = "Hop",
-          --   c = { "<cmd>HopChar1<cr>", "Character" },
-          --   C = { "<cmd>HopChar2<cr>", "2 Characters" },
-          --   l = { "<cmd>HopLine<cr>", "Line" },
-          --   p = { "<cmd>HopPattern<cr>", "Pattern" },
-          --   w = { "<cmd>HopWord<cr>", "Word" },
-          -- },
+          h = {
+            name = "Hop",
+            c = { "<cmd>HopChar1<cr>", "Character" },
+            C = { "<cmd>HopChar2<cr>", "2 Characters" },
+            l = { "<cmd>HopLine<cr>", "Line" },
+            p = { "<cmd>HopPattern<cr>", "Pattern" },
+            w = { "<cmd>HopWord<cr>", "Word" },
+          },
 
           t = {
             x = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
@@ -435,20 +439,21 @@ local config = {
       },
 
       v = {
-        --   ["<leader>"] = {
-        --     h = {
-        --       name = "Hop",
-        --       c = { "<cmd>HopChar1<cr>", "Character" },
-        --       C = { "<cmd>HopChar2<cr>", "2 Characters" },
-        --       l = { "<cmd>HopLine<cr>", "Line" },
-        --       p = { "<cmd>HopPattern<cr>", "Pattern" },
-        --       w = { "<cmd>HopWord<cr>", "Word" },
-        --     },
-        --   },
+        ["<leader>"] = {
+          h = {
+            name = "Hop",
+            c = { "<cmd>HopChar1<cr>", "Character" },
+            C = { "<cmd>HopChar2<cr>", "2 Characters" },
+            l = { "<cmd>HopLine<cr>", "Line" },
+            p = { "<cmd>HopPattern<cr>", "Pattern" },
+            w = { "<cmd>HopWord<cr>", "Word" },
+          },
 
-        z = {
-          n = { "<cmd>'<,'>TZNarrow<cr>", "Zen Narrow" },
+          z = {
+            n = { "<cmd>'<,'>TZNarrow<cr>", "Zen Narrow" },
+          },
         },
+
         -- END MAPPINGS - VISUAL
       },
     },
