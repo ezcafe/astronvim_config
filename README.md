@@ -71,21 +71,24 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 ### Git
 
-| Mode | Action        | Mappings               | Plugin?        | Custom? |
-| ---- | ------------- | ---------------------- | -------------- | ------- |
-| n    | Next Hunk     | Space + gj             | gitsigns.nvim  |
-| n    | Previous Hunk | Space + gk             | gitsigns.nvim  |
-| n    | Blame Line    | Space + gl             | gitsigns.nvim  |
-| n    | Preview Hunk  | Space + gp             | gitsigns.nvim  |
-| n    | Reset Hunk    | Space + gh             | gitsigns.nvim  |
-| n    | Reset Buffer  | Space + gr             | gitsigns.nvim  |
-| n    | Stage Hunk    | Space + gs             | gitsigns.nvim  |
-| n    | Unstage Hunk  | Space + gu             | gitsigns.nvim  |
-| n    | Git Diff      | Space + gd             | gitsigns.nvim  |
-| n    | Git Status    | Space + gt             | telescope.nvim |
-| n    | Git Branches  | Space + gb, Space + sb | telescope.nvim |
-| n    | Git Commits   | Space + gc             | telescope.nvim |
-| n    | Git Status    | Space + gs             | telescope.nvim | Yes     |
+| Mode | Action            | Mappings               | Plugin?        | Custom? |
+| ---- | ----------------- | ---------------------- | -------------- | ------- |
+| n    | Next Hunk         | Space + gj             | gitsigns.nvim  |
+| n    | Previous Hunk     | Space + gk             | gitsigns.nvim  |
+| n    | Blame Line        | Space + gl             | gitsigns.nvim  |
+| n    | Blame Line Toggle | Space + gL             | gitsigns.nvim  | Yes     |
+| n    | Preview Hunk      | Space + gp             | gitsigns.nvim  |
+| n    | Reset Hunk        | Space + gh, Space + gr | gitsigns.nvim  | Yes     |
+| n    | Reset Buffer      | Space + gR             | gitsigns.nvim  | Yes     |
+| n    | Stage Hunk        | Space + ga             | gitsigns.nvim  | Yes     |
+| n    | Stage Buffer      | Space + gA             | gitsigns.nvim  | Yes     |
+| n    | Unstage Hunk      | Space + gu             | gitsigns.nvim  |
+| n    | Unstage Buffer    | Space + gU             | gitsigns.nvim  | Yes     |
+| n    | Git Diff          | Space + gd             | gitsigns.nvim  |
+| n    | Git Status        | Space + gt             | telescope.nvim |
+| n    | Git Branches      | Space + gb, Space + sb | telescope.nvim |
+| n    | Git Commits       | Space + gc             | telescope.nvim |
+| n    | Git Status        | Space + gs             | telescope.nvim | Yes     |
 
 ### Hop
 

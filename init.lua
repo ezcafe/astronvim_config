@@ -402,8 +402,14 @@ local config = {
           },
 
           g = {
-            name = "Telescope",
+            name = "Git",
             s = { "<cmd>Telescope git_status<cr>", "Git status" },
+            a = { "<cmd>Gitsigns stage_hunk<cr>", "Git Hunk Stage" },
+            A = { "<cmd>Gitsigns stage_buffer<cr>", "Git Buffer Stage" },
+            U = { "<cmd>Gitsigns reset_buffer_index<cr>", "Git Buffer Unstage" },
+            r = { "<cmd>Gitsigns reset_hunk<cr>", "Git Hunk Reset" },
+            R = { "<cmd>Gitsigns reset_buffer<cr>", "Git Buffer Reset" },
+            L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
           },
 
           h = {
