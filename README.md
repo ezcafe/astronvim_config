@@ -183,7 +183,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 | n    | LazyGit                          | Space + tl, Space + gg   | toggleterm.nvim |
 | n    | Node                             | Space + tn               | toggleterm.nvim |
 | n    | NCDU                             | Space + tu               | toggleterm.nvim |
-| n    | Htop                             | Space + tt               | toggleterm.nvim |
+| n    | Open terminal in buffer          | Space + tt               | toggleterm.nvim | Yes     |
 | n    | Python                           | Space + tp               | toggleterm.nvim |
 | t    | Terminal normal mode             | Esc                      |
 | t    | Terminal normal mode             | jk                       |

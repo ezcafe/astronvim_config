@@ -422,6 +422,7 @@ local config = {
           },
 
           t = {
+            t = { "<cmd>terminal<cr>", "Open terminal in buffer" },
             x = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
           },
 
@@ -436,6 +437,8 @@ local config = {
 
         -- misc
         -- ["U"] = { "<C-R>", "Redo" },
+
+        -- Save and Quit
         ["C-q"] = { "<cmd>q<cr>", "Quit" },
         ["C-S-q"] = { "<cmd>q!<cr>", "Force quit" },
         ["C-s"] = { "<cmd>w<cr>", "Save" },
@@ -460,6 +463,10 @@ local config = {
           },
         },
 
+        -- Better Indentation
+        --["<"] = { "<cmd><gv", "Indent" },
+        --[">"] = { "<cmd>>gv", "Indent" },
+
         -- END MAPPINGS - VISUAL
       },
     },
@@ -477,6 +484,17 @@ local config = {
       pattern = "plugins.lua",
       command = "source <afile> | PackerSync",
     })
+
+    -- Change background color when changing mode
+    local C = require "default_theme.colors"
+    vim.api.nvim_create_autocmd(
+      { "InsertEnter" },
+      { callback = function() vim.api.nvim_set_hl(0, "Normal", { bg = "#001100" }) end }
+    )
+    vim.api.nvim_create_autocmd(
+      { "InsertLeave" },
+      { callback = function() vim.api.nvim_set_hl(0, "Normal", { bg = C.bg }) end }
+    )
 
     -- Set up custom filetypes
     -- vim.filetype.add {
