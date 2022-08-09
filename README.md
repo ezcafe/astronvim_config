@@ -192,6 +192,18 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 | t    | Terminal up window navigation    | Ctrl + k                 |
 | t    | Terminal right window navigation | Ctrl + l                 |
 
+### Test
+
+| Mode | Action                                       | Mappings               | Plugin?   | Custom? |
+| ---- | -------------------------------------------- | ---------------------- | --------- | ------- |
+| n    | run the whole test suite                     | Space + us             | nvim-test | Yes     |
+| n    | run all tests for the current file           | Space + uf             | nvim-test | Yes     |
+| n    | edit tests for the current file              | Space + ue             | nvim-test | Yes     |
+| n    | run the test nearest to the cursor           | Space + un, Space + uc | nvim-test | Yes     |
+| n    | rerun the latest test                        | Space + ul             | nvim-test | Yes     |
+| n    | open the last run test in the current buffer | Space + uv             | nvim-test | Yes     |
+| n    | show an information about the plugin         | Space + ui             | nvim-test | Yes     |
+
 ### Text
 
 | Mode | Action       | Mappings      | Plugin?      |

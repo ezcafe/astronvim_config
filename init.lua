@@ -103,7 +103,7 @@ local config = {
       -- },
 
       { "rmagatti/auto-session", config = function() require "user.plugins.auto-session" end },
-
+      { "klen/nvim-test", config = function() require "user.plugins.nvim-test" end },
       {
         "Pocco81/true-zen.nvim",
         config = function() require "user.plugins.true-zen" end,
@@ -440,6 +440,17 @@ local config = {
           t = {
             t = { "<cmd>terminal<cr>", "Open terminal in buffer" },
             x = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "ToggleTerm horizontal split" },
+          },
+
+          u = {
+            s = { "<cmd>TestSuite<cr>", "Run the whole test suite" },
+            f = { "<cmd>TestFile<cr>", "Run all tests for the current file" },
+            e = { "<cmd>TestEdit<cr>", "Edit tests for the current file" },
+            n = { "<cmd>TestNearest<cr>", "Run the test nearest to the cursor" },
+            c = { "<cmd>TestNearest<cr>", "Run the test nearest to the cursor" },
+            l = { "<cmd>TestLast<cr>", "Rerun the latest test" },
+            v = { "<cmd>TestVisit<cr>", "Open the last run test in the current buffer" },
+            i = { "<cmd>TestInfo<cr>", "Show an information about the plugin" },
           },
 
           z = {
