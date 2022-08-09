@@ -220,3 +220,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 | n    | Focus      | Space + zf | true-zen.nvim | Yes     |
 | n, v | Narrow     | Space + zn | true-zen.nvim | Yes     |
 | n    | Minimalist | Space + zm | true-zen.nvim | Yes     |
+
+## Java support
+
+[Java debugging and testing](https://github.com/imbacraft/dusk.nvim#java-debugging-and-testing)

@@ -381,7 +381,7 @@ local config = {
         -- -- Save and Quit
         -- ["C-q"] = { "<esc><cmd>q<cr>", "Quit" },
         -- ["C-S-q"] = { "<esc><cmd>q!<cr>", "Force quit" },
-        -- ["C-s"] = { "<esc><cmd>w<cr>", "Save" },
+        -- ["C-s"] = { "<ESC>ma<ESC>:w <CR>`a", "Save" },
         -- ["C-S-s"] = { "<esc><cmd>w!<cr>", "Force save" },
       },
 
