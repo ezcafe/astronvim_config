@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "onedark",
+  colorscheme = "default_theme",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -102,7 +102,6 @@ local config = {
       --   end,
       -- },
 
-      { "joshdick/onedark.vim" },
       {
         "Pocco81/true-zen.nvim",
         config = function() require "user.plugins.true-zen" end,
@@ -369,6 +368,21 @@ local config = {
     -- Add bindings which show up as group name
     register_mappings = {
       -- first key is the mode, n == normal mode
+      -- Modes:
+      --   Normal       = "n"
+      --   Insert       = "i"
+      --   Visual       = "v"
+      --   Visual_Block = "x"
+      --   Terminal     = "t"
+      --   Command      = "c"
+      i = {
+        -- -- Save and Quit
+        -- ["C-q"] = { "<esc><cmd>q<cr>", "Quit" },
+        -- ["C-S-q"] = { "<esc><cmd>q!<cr>", "Force quit" },
+        -- ["C-s"] = { "<esc><cmd>w<cr>", "Save" },
+        -- ["C-S-s"] = { "<esc><cmd>w!<cr>", "Force save" },
+      },
+
       n = {
         -- second key is the prefix, <leader> prefixes
         ["<leader>"] = {
