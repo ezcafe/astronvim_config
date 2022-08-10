@@ -378,11 +378,12 @@ local config = {
       --   Terminal     = "t"
       --   Command      = "c"
       i = {
-        -- -- Save and Quit
+        -- Save and Quit
         -- ["C-q"] = { "<esc><cmd>q<cr>", "Quit" },
         -- ["C-S-q"] = { "<esc><cmd>q!<cr>", "Force quit" },
-        -- ["C-s"] = { "<ESC>ma<ESC>:w <CR>`a", "Save" },
+        -- ["C-s"] = { "<ESC><cmd>:w <CR>", "Save" },
         -- ["C-S-s"] = { "<esc><cmd>w!<cr>", "Force save" },
+        -- ["^S"] = { "<ESC><cmd>:w <CR>", "Save" },
       },
 
       n = {
