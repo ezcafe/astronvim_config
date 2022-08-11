@@ -112,6 +112,7 @@ local config = {
         "phaazon/hop.nvim",
         config = function() require "user.plugins.hop" end,
       },
+      { "mfussenegger/nvim-jdtls" },
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
@@ -525,24 +526,6 @@ local config = {
       { "InsertLeave" },
       { callback = function() vim.api.nvim_set_hl(0, "Normal", { bg = C.bg }) end }
     )
-
-    -- Setup Java support
-    -- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
-    local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    local workspace_dir = "~/.cache/jdtls/workspace/" .. project_name
-    require("lspconfig").jdtls.setup {
-      cmd = {
-        "jdtls",
-        "-configuration",
-        "~/.local/share/nvim/mason/packages/jdtls/config_mac",
-        "-data",
-        workspace_dir,
-      },
-      init_options = {
-        jvm_args = {},
-        workspace = workspace_dir,
-      },
-    }
 
     -- Set up custom filetypes
     -- vim.filetype.add {
