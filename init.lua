@@ -269,7 +269,7 @@ local config = {
       --"dockerls",
       --"eslint",
       --"graphql",
-      --"jdtls",
+      "jdtls",
       --"quick_lint_js",
       --"jsonls",
       --"marksman",
